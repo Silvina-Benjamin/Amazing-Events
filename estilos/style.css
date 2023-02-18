@@ -97,10 +97,10 @@ main{
 /* cards */
 .contenedor-card{
     height: 100%;
-}
+} 
 .contenedor-card .card{
     margin-top:10px;
-    height:100vh;
+    height:90vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -224,8 +224,6 @@ footer p{
     height: 100%;
 }
 
-
-
 /* pantallas medianas */
 @media only screen and (min-width: 576px) and (max-width: 1000px){
 
@@ -264,18 +262,18 @@ footer p{
 @media only screen and  (min-width: 1000px){
 
     .contenedor-4-cards .card{
-        height: 500px;
-        margin-bottom: 50px;
+        height: 50%;
     }
 
 
         .contenedor-card .contenedor-4-cards{
         margin-right: 10px;
+        /* height: 500px; */
+        background-color: chartreuse;
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        align-items: flex-start;
         gap:50px;
-
     }
 
     .contenedor-card .card-text{
@@ -289,5 +287,6 @@ footer p{
     .search input{
         width: 400px;
     }
+
 
 } 
