@@ -32,10 +32,6 @@ main{
     background-color:rgb(228, 218, 235) !important;
 }
 
-.btn-outline-success svg :hover{
-    background-color: aqua;
-}
-
 .derecha{
     display: flex;
     flex-direction: row;
@@ -58,6 +54,7 @@ main{
 .nav-item a{
     color: rgb(228, 218, 235);
 }
+
 
 .page-title{
     width: 100%;
@@ -91,6 +88,11 @@ main{
     background-color: rgb(194, 165, 213);
     border-color: rgb(194, 165, 213);
 }
+.search button:hover{
+    background-color: rgb(228, 218, 235) !important;
+    border: rgb(228, 218, 235) !important;
+}
+
 .search input{
     width: 100%;
 }
@@ -115,6 +117,11 @@ main{
 }
 #ultima-card{
     margin-bottom: 50px;
+}
+
+.card a:hover{
+    background-color: rgb(139, 118, 118);
+    border: 2px solid rgb(139, 118, 118);
 }
 
 .card a{
@@ -145,7 +152,6 @@ footer{
     justify-content: space-between;
     position: fixed;
     bottom: 0;
-
 }
 
 footer p{
@@ -227,61 +233,63 @@ footer p{
 /* pantallas medianas */
 @media only screen and (min-width: 576px) and (max-width: 1000px){
 
-
-    .contenedor-card .card img{
-        height: 250px;
+    .card-img-top{
+        height: 30vh!important;
     }
+
     .contenedor-4-cards .card{
-        height: 75vh;
+        height: 600px;
+        width: 40vw;
     }
 
-    .contenedor-4-cards .card .card-body{
-        height: 200px;
-    }
         .contenedor-card .contenedor-4-cards{
         margin-right: 10px;
+        height: auto;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        gap:50px;
-
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        margin-bottom: 5vh;
     }
 
     .contenedor-card .card-text{
-        height: 200px;
+        height: 100px;
     }
     
     .search input{
-        width: 200px;
+        width: 100%;
     }
 }
 
 /* pantallas grandes */
 @media only screen and  (min-width: 1000px){
+    .card-img-top{
+        height: 30vh!important;
+    }
 
     .contenedor-4-cards .card{
-        height: 50%;
+        width: 20vw;
+        height: 500px!important;
     }
 
 
-        .contenedor-card .contenedor-4-cards{
+    .contenedor-card .contenedor-4-cards{
         margin-right: 10px;
-        /* height: 500px; */
-        background-color: chartreuse;
+        height: 85vh;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: flex-start;
         gap:50px;
     }
 
     .contenedor-card .card-text{
-        height: 200px;
+        height: 200px!important;
     }
     
     .contenedor-detalles .card-body{
-        height: 70%;
+        height: 250px!important;
     }
     
     .search input{

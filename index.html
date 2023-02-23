@@ -12,46 +12,40 @@
 <body>
     <header>
       <!-- barra de navegacion y logo -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-        <div class="nav-y-logo">
-          <div class="izquierda">
-            <img src="./img/Logo-Amazing-Events.png" alt="Logo">
-          </div>
-          <div class="derecha">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-              <div class="container-fluid">
-                <a class="navbar-brand" style="color:rgb(194, 165, 213)" href="./index.html">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link active"  aria-current="page" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="./upcoming-events.html">Upcoming Events</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="./past-events.html">Past Events</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="./contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="./stats.html">Stats</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
+      <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary nav-y-logo">
+        <div class="izquierda">
+          <img src="./img/Logo-Amazing-Events.png" alt="Logo">
         </div>
-      </div>
+        <div class="derecha">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active"  aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./upcoming-events.html">Upcoming Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./past-events.html">Past Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./stats.html">Stats</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </nav>
     </div>
-      </div>
-    </div>
+
     <!-- titulo de la pagina -->
       <div class="container-fluid">
         <div class="page-title">
@@ -73,31 +67,31 @@
 <!-- checkbox categorias -->
         <div class="checkbox">
           <div class="row">
-          <div class="col-6 col-md-2   form-check">
+          <div class="col-6 col-md-4 col-xl-2 form-check">
             <input class="form-check-input" type="checkbox" value="categoria1" id="flexCheckIndeterminate1">
             <label class="form-check-label" for="flexCheckIndeterminate1">
               Category
             </label>
           </div>
-          <div class="col-6 col-md-2 form-check">
+          <div class="col-6 col-md-4 col-xl-2 form-check">
             <input class="form-check-input" type="checkbox" value="categoria2" id="flexCheckIndeterminate2">
             <label class="form-check-label" for="flexCheckIndeterminate2">
               Category
             </label>
           </div>
-          <div class="col-6 col-md-2 form-check">
+          <div class="col-6 col-md-4 col-xl-2 form-check">
             <input class="form-check-input" type="checkbox" value="categoria3" id="flexCheckIndeterminate3">
             <label class="form-check-label" for="flexCheckIndeterminate3">
               Category
             </label>
           </div>
-          <div class="col-6 col-md-2 form-check">
+          <div class="col-6 col-md-4 col-xl-2 form-check">
             <input class="form-check-input" type="checkbox" value="categoria4" id="flexCheckIndeterminate4">
             <label class="form-check-label" for="flexCheckIndeterminate4">
               Category
             </label>
           </div>
-          <div class="col-6 col-md-2 form-check">
+          <div class="col-6 col-md-4 col-xl-2 form-check">
             <input class="form-check-input" type="checkbox" value="categoria5" id="flexCheckIndeterminate5">
             <label class="form-check-label" for="flexCheckIndeterminate5">
               Category
@@ -111,7 +105,7 @@
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(139, 118, 118) " class="bi bi-search" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(139, 118, 118) " class="bi bi-search" viewBox="0 0 16 16" >
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                   </svg>
                 </button>
@@ -125,8 +119,8 @@
       <!-- cards -->
       <section class="container-fluid contenedor-card">
         <div class="row">
-          <div class="col-12 contenedor-4-cards">
-            <div class="card" >
+          <div class="contenedor-4-cards">
+            <div class="col-12 col-md-6 col-xl-4  card ">
               <img src="./img/Cinema.jpg" class="card-img-top" alt="cinema">
               <div class="card-body">
                 <h5 class="card-title">Cinema</h5>
@@ -137,7 +131,7 @@
                 </div>
               </div>
             </div>
-            <div class="card" >
+            <div class="col-12 col-md-6 col-xl-4  card" >
               <img src="./img/Costume_Party.jpg" class="card-img-top" alt="Costume_Party">
               <div class="card-body">
                 <h5 class="card-title">Costume Party</h5>
@@ -148,7 +142,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="col-12 col-md-6 col-xl-4 card">
               <img src="./img/Food_Fair.jpg" class="card-img-top" alt="Food_Fair">
               <div class="card-body">
                 <h5 class="card-title">Food Fair</h5>
@@ -159,7 +153,7 @@
                 </div>
               </div>
             </div>
-            <div class="card" id="ultima-card" >
+            <div class="col-12 col-md-6 col-xl-4  card" id="ultima-card" >
               <img src="./img/Music_Concert.jpg" class="card-img-top" alt="Music_Concert">
               <div class="card-body">
                 <h5 class="card-title">Music Concert</h5>
