@@ -100,6 +100,10 @@ main{
 .contenedor-card{
     height: 100%;
 } 
+
+.contenedor-card .contenedor-4-cards{
+        margin-bottom: 20%;
+}
 .contenedor-card .card{
     margin-top:10px;
     height:90vh;
@@ -251,7 +255,7 @@ footer p{
         justify-content: center;
         align-items: flex-start;
         gap: 50px;
-        margin-bottom: 5vh;
+        margin-bottom: 10%;
     }
 
     .contenedor-card .card-text{
@@ -266,7 +270,7 @@ footer p{
 /* pantallas grandes */
 @media only screen and  (min-width: 1000px){
     .card-img-top{
-        height: 30vh!important;
+        height: 20vh!important;
     }
 
     .contenedor-4-cards .card{
@@ -277,11 +281,13 @@ footer p{
 
     .contenedor-card .contenedor-4-cards{
         margin-right: 10px;
-        height: 85vh;
+        height: auto;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: flex-start;
         gap:50px;
+        margin-bottom: 10%;
     }
 
     .contenedor-card .card-text{
