@@ -1,3 +1,4 @@
+// funcion para crear las cards
 function crearCardParaEvento (eventoCard){
     const nuevaCard= `<div class="card">
     <img src="${eventoCard.image}" class="card-img-top" alt="${eventoCard.name}">
@@ -11,4 +12,32 @@ function crearCardParaEvento (eventoCard){
     </div>
     </div>`
     return nuevaCard
+}
+
+// funcion para crear el listado de categorias para los checkboxes
+function agregoCategorias(categoria) {
+    const nuevaCategoria = `<div class="col-6 col-md-4 col-xl-2 form-check">
+        <input class="form-check-input" type="checkbox" value="${categoria}" id="input-${categoria}">
+        <label class="form-check-label" for="input${categoria}">
+            ${categoria}
+        </label>
+    </div>`
+    return nuevaCategoria
+}
+
+// funcion para generar los eventos filtrados
+
+function aplicoFiltro() {
+    contenedorPrincipal.innerHTML = ""
+    if (categoriasSeleccionadas.length == 0) {
+        for (card of resultados)
+            contenedorPrincipal.innerHTML += card
+    }
+    else {
+        contenedorPrincipal.innerHTML = ""
+        eventosFiltrados = data.events.filter (ev => categoriasSeleccionadas.includes (ev.category))
+            for (let ef of eventosFiltrados){
+                contenedorPrincipal.innerHTML += crearCardParaEvento (ef)
+            }
+    }
 }
