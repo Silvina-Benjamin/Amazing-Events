@@ -1,25 +1,42 @@
-for(let event of data.events){
-    let currentDate = new Date(data.currentDate);
-    let eventDate = new Date(event.date);
+// defino variables que voy a usar en general
 
+// array que contendrá las cards generadas
+resultadosFuturo = []
+// variable que contendrá todas las cards
+    const contenedorPrincipal = document.querySelector('#contenedorPrincipal')
+// array que contendrá todas las categorias
+    const listadoCategorias = []
+// cadena de texto que sumará los contenedores de  cada card individual
+    let htmlCategorias = ""
+// variable que contendrá todas las checkboxes de categorias
+    const contenedorCategorias = document.querySelector(".contenedorCategorias")
+// array que tendrá las categorias seleccionadas
+    let categoriasSeleccionadas = [] 
+// array que contendrá los eventos con fecha futuro
+    let upcomingEvents=[]
+
+for(let event of data.events){
+  let currentDate = new Date(data.currentDate);
+  let eventDate = new Date(event.date);
     if (eventDate > currentDate) {
-        console.log("evento futuro: " + event.name)
-    const contenedorOtraCard = document.createElement('div')
-    contenedorOtraCard.classList.add('card')
-    let otraCard = `<img src="${event.image}" class="card-img-top" alt="cinema">
-    <div class="card-body">
-    <h5 class="card-title">${event.name}</h5>
-    <p class="card-text">${event.description}</p>
-    <div class="fila-inferior-card">
-        <p>Price:<br> ${event.price}</p>
-        <a href="./details.html" class="btn btn-primary">Learn more</a>
-    </div>
-    </div>`
-    contenedorOtraCard.innerHTML = otraCard
-    console.log(contenedorOtraCard)
-    const nuevoDiv = document.querySelector('div.contenedor-4-cards')
-    document.querySelector('div.contenedor-4-cards').appendChild(contenedorOtraCard)
-        
+        upcomingEvents.push(event)
+        console.log(upcomingEvents)
     }
+  }
+
+  for (evento of upcomingEvents) {
+    resultadosFuturo.push(crearCardParaEvento(evento))
+    if (!listadoCategorias.includes(evento.category)){
+        listadoCategorias.push(evento.category)
+    }
+  }
+
+for (let cardCreada of resultadosFuturo){
+    contenedorPrincipal.innerHTML += cardCreada;
 }
-        
+for (let categoria of listadoCategorias){
+    htmlCategorias += agregoCategorias(categoria)
+}
+contenedorCategorias.innerHTML = htmlCategorias
+
+

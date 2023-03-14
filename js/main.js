@@ -37,56 +37,23 @@
     let busqueda = document.querySelectorAll('input[type=search]')
 
     // array de busqueda por palabra
-    let arrayDeBusqueda = data.events
+    // let arrayDeBusqueda = data.events
  
     casillasCheckbox.forEach(input => {
         input.addEventListener('change', (e) =>{
             const casilla = e.target;
             if (casilla.checked){
                 categoriasSeleccionadas.push(casilla.value);  
-                
             } else {
                 categoriasSeleccionadas = categoriasSeleccionadas.filter(categoria => categoria != casilla.value)
             }
-            aplicoFiltro()
+            aplicoFiltroCategoria()
         })
     })
 
     document.addEventListener('submit', (eb)=> {
-        eb.preventDefault()
         let palabraBusqueda = eb.target[0].value.toLowerCase();
-        console.log("la palabra ingresada es " + palabraBusqueda)
-        let filtroBusqueda = data.events.filter (eventobusqueda => {    
-            if(eventobusqueda.name.toLowerCase().includes (palabraBusqueda) || eventobusqueda.description.toLowerCase().includes(palabraBusqueda )){
-                return true;
-            }
-            
+        eb.preventDefault()
+        aplicoFiltroPalabra(palabraBusqueda)
+        console.log(eb)
         })
-        console.log(filtroBusqueda)
-        for(let eB of filtroBusqueda){
-            contenedorPrincipal.innerHTML += crearCardParaEvento (eB)
-        }
-        })
-
-
-        
-// Creo el filtro por categoria
-    
-    // variable que tendra todos los checkbox
-    // let casillasCheckbox = document.querySelectorAll('input[type=checkbox]')
- 
-    // casillasCheckbox.forEach(input => {
-    //     input.addEventListener('change', (e) =>{
-    //         const casilla = e.target;
-    //         if (casilla.checked){
-    //             categoriasSeleccionadas.push(casilla.value);  
-                
-    //         } else {
-    //             categoriasSeleccionadas = categoriasSeleccionadas.filter(categoria => categoria != casilla.value)
-    //         }
-    //         aplicoFiltro()
-    //     })
-    // })
-
-    // Creo el filtro para búsqueda por palabra
-

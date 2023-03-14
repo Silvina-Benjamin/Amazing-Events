@@ -25,19 +25,33 @@ function agregoCategorias(categoria) {
     return nuevaCategoria
 }
 
-// funcion para generar los eventos filtrados
+// funcion para generar los eventos filtrados por categoria
 
-function aplicoFiltro() {
+function aplicoFiltroCategoria() {
     contenedorPrincipal.innerHTML = ""
     if (categoriasSeleccionadas.length == 0) {
         for (card of resultados)
             contenedorPrincipal.innerHTML += card
     }
     else {
-        contenedorPrincipal.innerHTML = ""
         eventosFiltrados = data.events.filter (ev => categoriasSeleccionadas.includes (ev.category))
             for (let ef of eventosFiltrados){
                 contenedorPrincipal.innerHTML += crearCardParaEvento (ef)
             }
     }
 }
+
+// funcion para los eventos filtrados por palabras
+
+function aplicoFiltroPalabra(palabraBusqueda){
+    contenedorPrincipal.innerHTML = ""
+    let filtroBusqueda = data.events.filter (eventobusqueda => {    
+        if(eventobusqueda.name.toLowerCase().includes (palabraBusqueda)|| eventobusqueda.description.toLowerCase().includes(palabraBusqueda)){
+            return true;
+        }
+    }) 
+    for(let eB of filtroBusqueda){
+        contenedorPrincipal.innerHTML += crearCardParaEvento (eB)
+    }
+}
+

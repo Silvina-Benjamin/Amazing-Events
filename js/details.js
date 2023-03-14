@@ -7,9 +7,9 @@ let evento = ""
 console.log(id)
 evento = data.events.find(ed => ed._id == id);
 console.log(evento)
-document.querySelector('body').innerHTML =`<div class="row g-0">
+document.querySelector('body').innerHTML =`<div class="row g-0 contenedorDetails">
   <div class="col-12 col-md-8 col-xl-6">
-    <img src="${evento.image}" class="img-fluid rounded-start"  alt="Museum Tour">
+    <img src="${evento.image}" class="img-fluid rounded-start"  alt="${evento.name}">
   </div>
   <div class=" col-xl-6">
     <div class="card-body">
