@@ -28,6 +28,7 @@ function agregoCategorias(categoria) {
 // funcion para generar los eventos filtrados por categoria
 
 function aplicoFiltroCategoria() {
+
     contenedorPrincipal.innerHTML = ""
     if (categoriasSeleccionadas.length == 0) {
         for (card of resultados)
