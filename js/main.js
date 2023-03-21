@@ -17,21 +17,19 @@ let data;
 
 async function getEventData(){
     try {
-        let response = await fetch(url);
-        let datosAPI = await response.json();
-        data = datosAPI;
+        const response = await fetch(urlApi);
+        //throw new Error ("no se pudo obtener la data");
+        await response.json()
+            .then(json => {
+                data = json;
                 
                 // Creo la card de cada evento y sumo su categoria al listado de categorias
 
                 for (evento of data.events) {
                     resultados.push(crearCardParaEvento(evento))
-
                     if (!listadoCategorias.includes(evento.category)){
                         listadoCategorias.push(evento.category)
                     }
-                    eventCategories = [...new Set(eventCategories)];
-                    eventosFiltradosPasado = data.events.filter(event => new Date(event.date) < new Date(data.currentDate));
-                    eventosFiltradosFuturo = data.events.filter(event => new Date(event.date) > new Date(data.currentDate));
                 }
                 for (let cardCreada of resultados){
                     contenedorPrincipal.innerHTML += cardCreada;
@@ -47,8 +45,6 @@ async function getEventData(){
                 // variable que corestpondera a lo que se escriba en la barra de búsqueda
                 let busqueda = document.querySelectorAll('input[type=search]')
 
-                // array de busqueda por palabra
-                // let arrayDeBusqueda = data.events
             
                 casillasCheckbox.forEach(input => {
                     input.addEventListener('change', (e) =>{
@@ -68,7 +64,6 @@ async function getEventData(){
                     aplicoFiltroPalabra(palabraBusqueda)
                     console.log(eb)
                     })
-                    
             })
 
     } catch (error){

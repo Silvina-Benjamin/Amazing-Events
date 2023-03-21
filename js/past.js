@@ -107,16 +107,5 @@ function agregarCategoriasAListado(){
     }
 }
 
-// function gananciaPasado(){
-//     // console.log(listadoCategorias)
-//     for (evento of pastEvents){
-//         console.log(pastEvents)
-//         pastEvents.filter(cate)
-//         gananciaPrimeraCategoria += evento.price * evento.assistance;
-//         console .log(gananciaEvento)
-//     }
-// }
-// gananciaPasado()
-        
 
             
