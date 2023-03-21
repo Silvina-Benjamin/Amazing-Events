@@ -1,9 +1,7 @@
-
-
 let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
-let data;
+let past = './past.js'
 let resultados = []
-let past;
+
 
 
 
@@ -14,9 +12,11 @@ async function getEventData(){
         await response.json()
             .then(json => {
                 data = json;
-                listadoPorAsistencia()
-            })
+                llenarPrimeraTabla()
+                llenarSegundaTabla();
+                llenarTerceraTabla();
 
+            })
     } catch (error){
 
     }
@@ -27,9 +27,6 @@ getEventData()
 function asistenciaEvento(evento) {
     let capacidad = evento.capacity;
     let asistencia = evento.assistance;
-    if (!asistencia) {
-        asistencia = evento.estimate;
-    }
     let porcentajeAsistencia = asistencia/capacidad * 100;
     return porcentajeAsistencia;
 }
@@ -75,7 +72,7 @@ function mayorCapacidad(){
 
 }
 
-function listadoPorAsistencia (){
+function llenarPrimeraTabla (){
     let container = document.getElementById("primeraTabla");
     let tableBodyHTML = "";
     eventoMayorAsistencia = mayorAsistencia();
@@ -88,31 +85,54 @@ function listadoPorAsistencia (){
     container.innerHTML = tableBodyHTML;
 }
 
-// await import pastEvents from "./past.js";
-// (async ()=>{
-//     past = await import ("./past.js");
-
-
-// })
-
-async function gananciaPasado() {
-    // let past = await import ("./past.js");
-    await import ("./past.js")
-    .then(past => {
-        console.log(past.pastEvents)
-        if (past.pastEvents.length > 0) {
-            console.log("no cargo")
-        }
-        else {
-            // no entra al for
-        for (let evento of past.pastEvents){
-            console.log(evento.name)
-            console.log("hola")
-        } 
+function llenarSegundaTabla(data) {
+    let container = document.getElementById("segundaTabla");
+    eventCategories.forEach(element => {
+        let eventosFiltradosFuturo = data.filter(event => event.category === element);
+        let gananciaCategoria = getGananciaCategoria(eventosFiltradosFuturo);
+        let asistenciaCategoria = getAsistenciaCategoria(eventosFiltradosFuturo);
+        tableBodyHTML =  `<tr><td>${element}</td> <td>${gananciaCategoria}</td> <td>${asistenciaCategoria}</td></tr>`
+    container.innerHTML = tableBodyHTML;
+              
+    });
+    //Calcular ingresos promedio por categoría
+ function getGananciaCategoria(data) {
+    let eventsAmount = data.length;
+    let revenue = 0;
+    data.forEach(element => {
+        const estimate = parseInt(element.estimate||element.assistance);
+        const price = parseInt(element.price);
+        revenue += (estimate * price / eventsAmount);
+    });
+    if (revenue === 0) {
+        return "No events scheduled"
+    } else {
+        return "$" + Math.round(revenue) + " average per event";
     }
-    })
-
+}
+//Calcular asistencia promedio por categoría
+function getAsistenciaCategoria(data) {
+    let eventsAmount = data.length;
+    let attendance = 0;
+    data.forEach(element => {
+        attendance += parseInt(element.estimate||element.assistance);
+    });
+    if (attendance === 0) {
+        return "No events scheduled"
+    } else {
+        return Math.round(attendance / eventsAmount) + " average per event";
+    }
+}
+//Poblar tercera tabla
+function llenarTerceraTabla(data) {
+    let container = document.getElementById("terceraTabla");
+    eventCategories.forEach(element => {
+        let eventosFiltradosPasado = data.filter(event => event.category === element);
+        let gananciaCategoria = getGananciaCategoria(eventosFiltradosPasado);
+        let asistenciaCategoria = getAsistenciaCategoria(eventosFiltradosPasado);
+        tableBodyHTML =  `<tr><td>${element}</td> <td>${gananciaCategoria}</td> <td>${asistenciaCategoria}</td></tr>`
+    container.innerHTML = tableBodyHTML;           
+    });
 }
 
-
-gananciaPasado()
+}

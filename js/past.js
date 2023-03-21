@@ -13,10 +13,9 @@ let resultados = []
 // array que tendrá las categorias seleccionadas
     let categoriasSeleccionadas = [] 
 
-    let gananciaEventos = "S"
+    let gananciaEventos = ""
 // array que contendrá los eventos con fecha pasado
-    //  export let pastEvents=[];
-     let pastEvents=[];
+    let pastEvents=[];
 
 
 
@@ -66,7 +65,7 @@ async function getEventData(){
                         aplicoFiltroPalabra(palabraBusqueda)
                         })
 
-
+                        ganancia()
                 })  
             })
     } catch (error){
@@ -108,14 +107,16 @@ function agregarCategoriasAListado(){
     }
 }
 
-function gananciaPasado(){
-    for (evento of listadoCategorias){
-        console.log(evento.price)
-        gananciaEventos += evento.price * evento.assistance;
-        conslole.log(gananciaEvento)
-    }
-}
-gananciaPasado()
+// function gananciaPasado(){
+//     // console.log(listadoCategorias)
+//     for (evento of pastEvents){
+//         console.log(pastEvents)
+//         pastEvents.filter(cate)
+//         gananciaPrimeraCategoria += evento.price * evento.assistance;
+//         console .log(gananciaEvento)
+//     }
+// }
+// gananciaPasado()
         
 
             

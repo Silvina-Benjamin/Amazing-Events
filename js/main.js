@@ -17,19 +17,21 @@ let data;
 
 async function getEventData(){
     try {
-        const response = await fetch(urlApi);
-        //throw new Error ("no se pudo obtener la data");
-        await response.json()
-            .then(json => {
-                data = json;
+        let response = await fetch(url);
+        let datosAPI = await response.json();
+        data = datosAPI;
                 
                 // Creo la card de cada evento y sumo su categoria al listado de categorias
 
                 for (evento of data.events) {
                     resultados.push(crearCardParaEvento(evento))
+
                     if (!listadoCategorias.includes(evento.category)){
                         listadoCategorias.push(evento.category)
                     }
+                    eventCategories = [...new Set(eventCategories)];
+                    eventosFiltradosPasado = data.events.filter(event => new Date(event.date) < new Date(data.currentDate));
+                    eventosFiltradosFuturo = data.events.filter(event => new Date(event.date) > new Date(data.currentDate));
                 }
                 for (let cardCreada of resultados){
                     contenedorPrincipal.innerHTML += cardCreada;
