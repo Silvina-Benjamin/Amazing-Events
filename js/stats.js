@@ -20,24 +20,7 @@ async function getEventData(){
 
     })
 
-    // llenarPrimeraTabla()
-    // getPastData()
 
-
-    // viejo hasta el catch(error)
-    // try {
-    //     const response = await fetch(urlApi);
-
-    //     await response.json()
-    //         .then(json => {
-    //             data = json;
-    //             llenarPrimeraTabla()
-    //             llenarSegundaTabla();
-
-
-    //         })
-    // } catch (error){
-    // }
 }
 getEventData()
 
@@ -47,13 +30,12 @@ function getUpcomingData(data){
 
     llenarSegundaTabla(upcomingEvents)
 }
-// getUpcomingData()
+
 
 async function getPastData(data){
     pushearPastEvents(data)
     llenarTerceraTabla(pastEvents);
 }
-// getPastData()
 
 function asistenciaEvento(evento) {
     let capacidad = evento.capacity;
@@ -165,11 +147,13 @@ function llenarSegundaTabla(upcomingEvents) {
 // completo la tercera tabla
 function llenarTerceraTabla(pastEvents) {
     let container = document.getElementById("terceraTabla");
+    let gananciaCategoria = ""
+    let asistenciaCategoria = ""
     listaCategoriasPast(pastEvents)
     listadoCategoriasPast.forEach(element => {
         let eventosFiltradosPasado = pastEvents.filter(event => event.category === element);
-        let gananciaCategoria = getGananciaCategoria(eventosFiltradosPasado);
-        let asistenciaCategoria = getAsistenciaCategoria(eventosFiltradosPasado);
+        gananciaCategoria = getGananciaCategoria(eventosFiltradosPasado);
+        asistenciaCategoria = getAsistenciaCategoria(eventosFiltradosPasado);
         tableBodyHTML +=  `<tr><td>${element}</td> <td>${gananciaCategoria}</td> <td>${asistenciaCategoria}</td></tr>`
     container.innerHTML = tableBodyHTML;           
     });
